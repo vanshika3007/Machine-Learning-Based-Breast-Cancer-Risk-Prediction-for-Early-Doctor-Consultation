@@ -3,22 +3,78 @@ import numpy as np
 import pickle
 import time
 
+# ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="Breast Cancer Risk Prediction",
     page_icon="🎀",
     layout="wide"
 )
 
-# Load model
+# ---------------- CUSTOM CSS ----------------
+st.markdown("""
+<style>
+.main {
+    background-color: #fff5f7;
+}
+.stButton>button {
+    background-color: #e63946;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    height: 3em;
+    width: 100%;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ---------------- LOAD MODEL ----------------
 model = pickle.load(open("breast_cancer_model.pkl", "rb"))
 
-st.title("🎀 Breast Cancer Risk Prediction System")
-st.markdown("### Early Detection for Better Medical Consultation")
+# ---------------- MAIN TITLE ----------------
+st.title("🎀 Machine Learning–Based Breast Cancer Risk Prediction for Early Doctor Consultation")
+st.markdown("### AI-Powered Clinical Decision Support System")
 
-st.sidebar.header("Enter Tumor Measurements")
+st.markdown("""
+This system uses advanced Machine Learning algorithms to predict whether a breast tumor is **Benign or Malignant** 
+based on medical measurements. Early detection improves survival rate and enables timely doctor consultation.
 
-# IMPORTANT: Feature order must match training
-features = []
+The model was trained on tumor feature data including mean, standard error, and worst values of 
+radius, texture, perimeter, area, smoothness, compactness, concavity, symmetry, and fractal dimension.
+""")
+
+st.markdown("---")
+
+# ---------------- MODEL DETAILS SECTION ----------------
+st.header("📊 Models Evaluated")
+
+st.markdown("""
+The following Machine Learning models were trained and compared:
+
+- Logistic Regression  
+- Support Vector Machine (SVM)  
+- K-Nearest Neighbors  
+- Decision Tree  
+- Random Forest  
+- Gradient Boosting  
+- Neural Network (MLP)  
+- XGBoost  
+- LightGBM  
+
+Model performance was evaluated using:
+- Accuracy  
+- Precision  
+- Recall  
+- F1 Score  
+- ROC-AUC Score  
+""")
+
+st.success("🏆 Best Performing Model: Support Vector Machine (SVM)")
+st.markdown("Selected based on highest ROC-AUC and Recall, which are critical for minimizing false negatives in medical diagnosis.")
+
+st.markdown("---")
+
+# ---------------- INPUT SECTION ----------------
+st.sidebar.header("📝 Enter Tumor Measurements")
 
 feature_names = [
     'radius_mean','texture_mean','perimeter_mean','area_mean',
@@ -33,47 +89,50 @@ feature_names = [
     'symmetry_worst','fractal_dimension_worst'
 ]
 
+features = []
+
 for feature in feature_names:
-    value = st.sidebar.number_input(feature, value=0.0)
+    value = st.sidebar.number_input(feature, value=0.0, format="%.5f")
     features.append(value)
 
 input_data = np.array([features])
 
-if st.sidebar.button("Predict Cancer"):
+# ---------------- PREDICTION ----------------
+if st.sidebar.button("🔍 Predict Cancer Risk"):
 
     with st.spinner("Analyzing Tumor Data..."):
         time.sleep(2)
         prediction = model.predict(input_data)
         probability = model.predict_proba(input_data)[0][1]
 
-    st.subheader("Prediction Result")
+    st.header("🔎 Prediction Result")
+    st.progress(int(probability * 100))
 
     if prediction[0] == 1:
-        st.error(f"⚠ Malignant Tumor Detected (Risk: {round(probability*100,2)}%)")
+        st.error("⚠ Malignant Tumor Detected")
+        st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
 
-        st.markdown("## 👩‍⚕ Doctor Consultation Recommended")
+        st.markdown("## 👩‍⚕ Doctor Consultation: ✅ YES")
         st.markdown("""
-        - Consult an Oncologist immediately  
-        - Schedule biopsy confirmation  
-        - Perform MRI / CT scan  
-        - Start early treatment planning  
+        ✔ Immediate oncologist consultation  
+        ✔ Biopsy confirmation  
+        ✔ MRI / CT Scan  
+        ✔ Begin treatment planning  
         """)
 
     else:
-        st.success(f"✅ Benign Tumor (Risk: {round(probability*100,2)}%)")
+        st.success("✅ Benign Tumor Detected")
+        st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
 
-        st.markdown("## 🩺 Regular Monitoring Suggested")
+        st.markdown("## 🩺 Doctor Consultation: ❌ NO (Routine Monitoring)")
         st.markdown("""
-        - Maintain yearly screening  
-        - Follow healthy lifestyle  
-        - Regular clinical check-ups  
+        ✔ Maintain yearly screening  
+        ✔ Healthy lifestyle  
+        ✔ Regular clinical check-ups  
         """)
 
 st.markdown("---")
-st.markdown("Developed for Early Breast Cancer Risk Assessment")
-
-
-
+st.markdown("© 2026 Machine Learning–Based Clinical Decision Support System 🎀")
 
 
 
