@@ -75,6 +75,7 @@ st.markdown("---")
 
 # ---------------- INPUT SECTION ----------------
 st.sidebar.header("📝 Enter Tumor Measurements")
+st.sidebar.video('https://cdnl.iconscout.com/lottie/premium/preview-watermark/woman-doing-breast-cancer-awareness-animation-gif-download-10656636.mp4')
 
 feature_names = [
     'radius_mean','texture_mean','perimeter_mean','area_mean',
