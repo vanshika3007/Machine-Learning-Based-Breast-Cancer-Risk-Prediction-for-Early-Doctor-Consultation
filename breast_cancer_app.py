@@ -101,7 +101,7 @@ for feature in feature_names:
 input_data = np.array([features])
 
 # ---------------- PREDICTION ----------------
-st.image("https://assets-v2.lottiefiles.com/a/882f9f24-1165-11ee-951f-6b5071a39d70/PUCp8P3qwy.gif", use_column_width=50)
+st.image("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhyMHpqaXl1YmhmazJqeDF0bTVtc2NuMWs2aDc5d3FzdHZmNnFycCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/lhhagrA5kanz3BuzRr/giphy.webp", use_column_width=50)
 
 if st.sidebar.button("🔍 Predict Cancer Risk"):
 
@@ -116,7 +116,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     if prediction[0] == 1:
         st.error("⚠ Malignant Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", width=100)
+        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", width=50)
 
         st.markdown("## 👩‍⚕ Doctor Consultation: ✅ YES")
         st.markdown("""
@@ -129,7 +129,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     else:
         st.success("✅ Benign Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=100)
+        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=50)
         
         st.markdown("## 🩺 Doctor Consultation: ❌ NO (Routine Monitoring)")
         st.markdown("""
