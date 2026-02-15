@@ -33,7 +33,7 @@ model = pickle.load(open("breast_cancer_model.pkl", "rb"))
 # ---------------- MAIN TITLE ----------------
 st.title(" Machine Learning–Based Breast Cancer Risk Prediction for Early Doctor Consultation")
 st.markdown("### AI-Powered Clinical Decision Support System")
-st.image("https://media.giphy.com/media/efjT7lfJI3Oko/giphy.gif", use_column_width=True)
+st.image("https://media.giphy.com/media/efjT7lfJI3Oko/giphy.gif", use_column_width=250)
 
 st.markdown("""
 This system uses advanced Machine Learning algorithms to predict whether a breast tumor is **Benign or Malignant** 
@@ -116,7 +116,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     if prediction[0] == 1:
         st.error("⚠ Malignant Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", width=200)
+        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", width=150)
 
         st.markdown("## 👩‍⚕ Doctor Consultation: ✅ YES")
         st.markdown("""
@@ -129,7 +129,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     else:
         st.success("✅ Benign Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=200)
+        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=100)
         
         st.markdown("## 🩺 Doctor Consultation: ❌ NO (Routine Monitoring)")
         st.markdown("""
