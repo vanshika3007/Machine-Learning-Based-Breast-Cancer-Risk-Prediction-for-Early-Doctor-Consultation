@@ -6,8 +6,7 @@ import time
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="Breast Cancer Risk Prediction",
-    page_icon="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif
-",
+    page_icon="🎀",
     layout="wide"
 )
 
