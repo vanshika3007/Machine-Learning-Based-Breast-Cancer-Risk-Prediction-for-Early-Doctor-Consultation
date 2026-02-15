@@ -47,7 +47,7 @@ st.markdown("---")
 
 # ---------------- MODEL DETAILS SECTION ----------------
 st.header("📊 Models Evaluated")
-st.image("https://media1.giphy.com/media/iJhw5xU0oc4FeNOi0C/source.gif", use_column_width=True)
+st.image("https://media1.giphy.com/media/iJhw5xU0oc4FeNOi0C/source.gif", width=250)
 
 st.markdown("""
 The following Machine Learning models were trained and compared:
@@ -101,7 +101,7 @@ for feature in feature_names:
 input_data = np.array([features])
 
 # ---------------- PREDICTION ----------------
-st.image("https://assets-v2.lottiefiles.com/a/882f9f24-1165-11ee-951f-6b5071a39d70/PUCp8P3qwy.gif", use_column_width=True)
+st.image("https://assets-v2.lottiefiles.com/a/882f9f24-1165-11ee-951f-6b5071a39d70/PUCp8P3qwy.gif", use_column_width=250)
 
 if st.sidebar.button("🔍 Predict Cancer Risk"):
 
@@ -116,7 +116,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     if prediction[0] == 1:
         st.error("⚠ Malignant Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", use_column_width=True)
+        st.image("https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyOWxkbDR1eGNyZ3QxYzlseTAwNWpuaHF5b2NmbzZodG1xZHk0NTJwaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zbcGiWRNxfpIF0tLiH/200w.gif", width=200)
 
         st.markdown("## 👩‍⚕ Doctor Consultation: ✅ YES")
         st.markdown("""
@@ -129,7 +129,7 @@ if st.sidebar.button("🔍 Predict Cancer Risk"):
     else:
         st.success("✅ Benign Tumor Detected")
         st.metric("Cancer Risk Probability", f"{round(probability*100,2)} %")
-        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=True)
+        st.image("https://media3.giphy.com/media/Ierkq3VyOpH0cCvwPQ/source.gif", use_column_width=200)
         
         st.markdown("## 🩺 Doctor Consultation: ❌ NO (Routine Monitoring)")
         st.markdown("""
