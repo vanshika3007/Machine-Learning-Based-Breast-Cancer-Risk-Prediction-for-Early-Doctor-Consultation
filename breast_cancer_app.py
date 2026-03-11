@@ -32,7 +32,6 @@ model = pickle.load(open("breast_cancer_model.pkl", "rb"))
 
 # ---------------- MAIN TITLE ----------------
 st.title(" AI-POWERED BREAST CANCER RISK PREDICTION SYSTEM FOR CLINICAL DECISION SUPPORT")
-st.markdown("### AI-Powered Clinical Decision Support System")
 st.image("https://media.giphy.com/media/efjT7lfJI3Oko/giphy.gif", use_column_width=250)
 
 st.markdown("""
